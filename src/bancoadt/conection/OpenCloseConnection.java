@@ -11,8 +11,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,7 +23,7 @@ public class OpenCloseConnection {
     
     public OpenCloseConnection() {
         
-        configFile = ResourceBundle.getBundle("config");
+        configFile = ResourceBundle.getBundle("bancoadt.conection.config");
         url = configFile.getString("Conn");
         user = configFile.getString("DBUser");
         pass = configFile.getString("DBPass");
@@ -53,7 +51,7 @@ public class OpenCloseConnection {
                 stat.close();
                 con.close();
             } catch (SQLException ex) {
-                throw new ConnectException("Error al desconectar con la base de datos"); 
+                throw new ConnectException("Error al cerrar con la base de datos"); 
             }
         }
         

@@ -15,12 +15,12 @@ import java.util.List;
  */
 public interface Dao {
     
-    public int crearCliente();
-    public Customer consultarCliente(int id);
+    public void crearCliente();
+    public Customer consultarCliente();
     public List consultarCuentaCliente(Customer cust);
     public void crearCuenta(Customer cust);
     public void agregarClienteCuenta(Account acco, Customer cust);
-    public Account consultarCuenta(int id);
+    public Account consultarDatosCuenta(int id);
     public void realizarMovimiento(Account acco);
     public List consultarMovimientos(Account acco);
     
