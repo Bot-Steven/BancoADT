@@ -11,4 +11,7 @@ package bancoadt.clases;
  */
 public class Account {
     
+    private int id;
+    private String description;
+    
 }
