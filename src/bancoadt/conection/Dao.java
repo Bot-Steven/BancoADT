@@ -7,6 +7,7 @@ package bancoadt.conection;
 
 import bancoadt.clases.Account;
 import bancoadt.clases.Customer;
+import java.sql.Connection;
 import java.util.List;
 
 /**
@@ -14,6 +15,8 @@ import java.util.List;
  * @author 2dam
  */
 public interface Dao {
+
+  
     
     public int crearCliente();
     public Customer consultarCliente(int id);

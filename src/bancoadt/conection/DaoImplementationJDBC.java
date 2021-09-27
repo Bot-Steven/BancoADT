@@ -29,7 +29,7 @@ public class DaoImplementationJDBC implements Dao{
     
     private final String insertarCliente = "insert into customer (city,email,firstName,lastName,middleInitial,phone,state,street,zip) values (?,?,?,?,?,?,?,?,?)";
     private final String buscarIdCliente = "select id from customer where id = ?";
-    
+    private final String crearCuenta = "insert into account (id,description,balance,creditLine,beginBalance,beginBalanceTimeStamp,,type) values (?,?,?,?,?,?,?)";
     private int id = 1;
   
    
@@ -109,7 +109,25 @@ public class DaoImplementationJDBC implements Dao{
 
     @Override
     public void crearCuenta(Customer cust) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         ResultSet rs = null;  
+        try {
+            con=connection.openConnection();
+        } catch (ConnectException ex) {
+            Logger.getLogger(DaoImplementationJDBC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+        stat = con.prepareStatement(crearCuenta);
+        
+        stat.setInt(1, Util.leerInt("Introduce el ID de la cuenta: "));
+        stat.setString(2, "Introduce una descripcion: ");
+        stat.setFloat(3, Util.leerFloat("Introduce el balance: "));
+        stat.setFloat(4, Util.leerFloat("Introduce la linea de credito: "));
+        stat.setFloat(5, Util.leerFloat("Introduce el balance inicial: "));
+        } catch (SQLException ex) {
+            Logger.getLogger(DaoImplementationJDBC.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     @Override
@@ -118,8 +136,18 @@ public class DaoImplementationJDBC implements Dao{
     }
 
     @Override
-    public Account consultarCuenta(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public Account consultarCuenta(int id){
+        
+        Account aux = null;
+        ResultSet rs = null;
+       
+      
+        Dao.openConnection();
+        
+        stat = con.prepareStatement(consultarCuenta);
+        
+              
+        return aux; 
     }
 
     @Override
