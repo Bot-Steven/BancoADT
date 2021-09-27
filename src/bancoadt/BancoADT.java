@@ -5,8 +5,14 @@
  */
 package bancoadt;
 
+import bancoadt.clases.Account;
+import bancoadt.clases.Customer;
+import bancoadt.clases.Movement;
+import bancoadt.conection.Dao;
 import bancoadt.conection.DaoImplementationJDBC;
 import bancoadt.utilidades.Util;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -19,7 +25,11 @@ public class BancoADT {
      */
     public static void main(String[] args) {
         int menu;
-        DaoImplementationJDBC daoI = new DaoImplementationJDBC();
+        
+        Customer cust = null;
+        Account acco = null;
+        
+        Dao daoI = new DaoImplementationJDBC();
         
         do{
         
@@ -51,30 +61,42 @@ public class BancoADT {
                     break;
 
                 case 3:
-                    daoI.consultarCuentaCliente();
+                    daoI.consultarCuentaCliente(cust);
                     break;
 
                 case 4:
-                    daoI.crearCuenta();
+                    daoI.crearCuenta(cust);
                     break;
 
                 case 5:
-                    daoI.agregarClienteCuenta();
+                    daoI.agregarClienteCuenta(acco, cust);
                     break;
 
                 case 6:
-                    daoI.consultarCuenta();
+                    daoI.consultarDatosCuenta(acco);
                     break;
 
                 case 7:
-                    daoI.realizarMovimiento();
+                    daoI.realizarMovimiento(acco);
                     break;
 
                 case 8:
-                    daoI.consultarMovimientos();
+                    consultarMovimientos(daoI);
                     break;
             }
-        }while(menu!=0);
+        }while(menu!=0);   
     }
-    
+
+    private static void consultarMovimientos(Dao daoI) {
+        Account acc = new Account();
+        List <Movement> mov = new ArrayList<>();
+        
+        acc.setId(Util.leerLong("Introduce el id de la cuenta"));
+        mov = daoI.consultarMovimientos(acc);
+        
+        for (Movement m : mov) {
+            m.getDatos();
+            
+        }
+    }
 }

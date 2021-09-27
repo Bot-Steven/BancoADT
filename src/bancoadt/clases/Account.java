@@ -5,13 +5,77 @@
  */
 package bancoadt.clases;
 
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Enumeration;
+
 /**
  *
- * @author Steven,Irkus,Unai y Adrian
+ * @author 2dam
  */
-public class Account {
-    
-    private int id;
+public class Account implements Serializable {
+
+    private long id;
     private String description;
+    private float balance, creditLine, beginBalance;
+    private LocalDate beginBalanceTimeStamp;
+    private Enumeration type;
+
+    public long getId() {
+        return id;
+    }
+
     
+
+    public String getDescription() {
+        return description;
+    }
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public float getCreditLine() {
+        return creditLine;
+    }
+
+    public float getBeginBalance() {
+        return beginBalance;
+    }
+
+    public LocalDate getBeginBalanceTimeStamp() {
+        return beginBalanceTimeStamp;
+    }
+
+    public Enumeration getType() {
+        return type;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+
+    public void setCreditLine(float creditLine) {
+        this.creditLine = creditLine;
+    }
+
+    public void setBeginBalance(float beginBalance) {
+        this.beginBalance = beginBalance;
+    }
+
+    public void setBeginBalanceTimeStamp(LocalDate beginBalanceTimeStamp) {
+        this.beginBalanceTimeStamp = beginBalanceTimeStamp;
+    }
+
+    public void setType(Enumeration type) {
+        this.type = type;
+    }
 }

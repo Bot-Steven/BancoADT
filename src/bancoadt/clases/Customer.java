@@ -5,24 +5,66 @@
  */
 package bancoadt.clases;
 
+import java.io.Serializable;
+
 /**
  *
- * @author Steven,Irkus,Unai y Adrian
+ * @author 2dam
  */
-public class Customer {
-    
-    private int id, zip, phone;
-    private String firstName, lastName, middleInitial, street, city, state, email;
+public class Customer implements Serializable{
 
-    public int getId() {
+    private long id, zip, phone;
+    private String firstName, lastName, middleName, street, city, state, email;
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setZip(long zip) {
+        this.zip = zip;
+    }
+
+    public void setPhone(long phone) {
+        this.phone = phone;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setMiddleName(String middleName) {
+        this.middleName = middleName;
+    }
+
+    public void setStreet(String street) {
+        this.street = street;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public long getId() {
         return id;
     }
 
-    public int getZip() {
+    public long getZip() {
         return zip;
     }
 
-    public int getPhone() {
+    public long getPhone() {
         return phone;
     }
 
@@ -34,8 +76,8 @@ public class Customer {
         return lastName;
     }
 
-    public String getMiddleInitial() {
-        return middleInitial;
+    public String getMiddleName() {
+        return middleName;
     }
 
     public String getStreet() {
@@ -54,45 +96,6 @@ public class Customer {
         return email;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setZip(int zip) {
-        this.zip = zip;
-    }
-
-    public void setPhone(int phone) {
-        this.phone = phone;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMiddleInitial(String middleInitial) {
-        this.middleInitial = middleInitial;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
     
     
     

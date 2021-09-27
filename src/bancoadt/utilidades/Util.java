@@ -32,7 +32,7 @@ public class Util {
 		 InputStreamReader entrada =new InputStreamReader(System.in);
 		 BufferedReader teclado= new BufferedReader(entrada);
 		 
-		 System.out.print(mensaje);
+		 System.out.println(mensaje);
 		try {
 			cadena=teclado.readLine();
 		} catch (IOException e) {
@@ -48,7 +48,7 @@ public class Util {
 			ok = true;
 			cadena=introducirCadena();
 			if(cadena.length()>x){
-				System.out.print("Error, longitud superior a la permitida. Introduzca de nuevo: ");
+				System.out.println("Error, longitud superior a la permitida. Introduzca de nuevo: ");
 				ok = false;
 			}
 		}while(!ok);
@@ -63,7 +63,7 @@ public class Util {
 			error=false;
 			letra=introducirCadena();
 			if(letra.length()!=1){
-				System.out.print("Error, introduce un caracter: ");
+				System.out.println("Error, introduce un car�cter: ");
 				error=true;
 			}
 			
@@ -80,7 +80,7 @@ public class Util {
 			
 			frase=introducirCadena();
 			if (frase.length()!=1) {
-				System.out.print("Error, introduce un unico caracter: ");
+				System.out.println("Error, introduce un �nico car�cter: ");
 			}
 		}while (frase.length()!=1);
 		letra=frase.charAt(0);
@@ -97,13 +97,13 @@ public class Util {
 			do {
 				frase=introducirCadena();
 				if (frase.length()!=1) {
-					System.out.print("Error, introduce un unico caracter: ");
+					System.out.println("Error, introduce un �nico car�cter: ");
 				}
 			}while (frase.length()!=1);
 			letra=frase.charAt(0);
 			if(!(letra == x || letra==y))
 			{
-				System.out.println("Error caracter no Valido");
+				System.out.println("Error car�cter no Valido");
 			}
 		}while (!(letra == x || letra==y));
 		return letra;		
@@ -120,7 +120,7 @@ public class Util {
 			error=false;
 			letra=introducirCadena();
 			if(letra.length()!=1){
-				System.out.print("Error, introduce un caracter: ");
+				System.out.println("Error, introduce un car�cter: ");
 				error=true;
 			}
 			else{
@@ -132,7 +132,7 @@ public class Util {
 				}
 				if(i==caracteres.length){
 					error=true;
-					System.out.println("Error, el caracter introducido no es valido. ");
+					System.out.println("Error, el car�cter introducido no es valido. ");
 				}
 			}
 		}while(error);
@@ -147,7 +147,7 @@ public class Util {
 				num=Integer.parseInt(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 			}
 		}while(error);
@@ -157,14 +157,31 @@ public class Util {
 	public static int leerInt(String mensaje){
 		int num=0;
 		boolean error;
-		System.out.print(mensaje);
+		System.out.println(mensaje);
 		do{
 			error=false;
 			try{
 				num=Integer.parseInt(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
+				error=true;
+			}
+		}while(error);
+		return num;
+	}
+        
+        public static long leerLong(String mensaje){
+		long num=0;
+		boolean error;
+		System.out.println(mensaje);
+		do{
+			error=false;
+			try{
+				num=Long.parseLong(introducirCadena());
+			}
+			catch(NumberFormatException e){
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 			}
 		}while(error);
@@ -180,12 +197,12 @@ public class Util {
 				num=Integer.parseInt(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 				num=x;
 			}
 			if (num<x || num>y){
-				System.out.print("Error, dato fuera de rango. Introduce de nuevo: ");
+				System.out.println("Error, dato fuera de rango. Introduce de nuevo: ");
 				error=true;
 				
 			}
@@ -203,12 +220,12 @@ public class Util {
 				num=Integer.parseInt(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 				num=x;
 			}
 			if (num<x || num>y){
-				System.out.print("Error, dato fuera de rango. Introduce de nuevo: ");
+				System.out.println("Error, dato fuera de rango. Introduce de nuevo: ");
 				error=true;
 				
 			}
@@ -225,7 +242,7 @@ public class Util {
 				num=Float.parseFloat(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 			}
 		}while(error);
@@ -244,7 +261,7 @@ public class Util {
 			}
 			catch(NumberFormatException e){
 				ok=false;	
-				System.out.println("Error al introducir un numero");
+				System.out.println("Error al introducir un n�mero");
 			}
 		}while (!ok);
 		return num;
@@ -259,12 +276,12 @@ public class Util {
 				num=Float.parseFloat(introducirCadena());
 			}
 			catch(NumberFormatException e){
-				System.out.print("Error, el dato no es numerico. Introduce de nuevo: ");
+				System.out.println("Error, el dato no es num�rico. Introduce de nuevo: ");
 				error=true;
 				num=x;
 			}
 			if (num<x || num>y){
-				System.out.print("Error, dato fuera de rango. Introduce de nuevo: ");
+				System.out.println("Error, dato fuera de rango. Introduce de nuevo: ");
 				error=true;
 				
 			}
@@ -281,7 +298,7 @@ public class Util {
 				num =Double.parseDouble(introducirCadena());
 
 			} catch (NumberFormatException e) {
-				System.out.println("Hay que introducir numeros");
+				System.out.println("Hay que introducir n�meros");
 				ok = false;
 				num = x;
 
