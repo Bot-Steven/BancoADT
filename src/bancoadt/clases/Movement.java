@@ -5,20 +5,21 @@
  */
 package bancoadt.clases;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 /**
  *
- * @author Steven,Irkus,Unai y Adrian
+ * @author 2dam
  */
-public class Movement {
+public class Movement implements Serializable {
+    private long id;
+
     
-    private int id;
     private LocalDate timeStamp;
     private float amount,balance;
     private String description;
-    
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -38,7 +39,7 @@ public class Movement {
         this.description = description;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
@@ -58,4 +59,11 @@ public class Movement {
         return description;
     }
     
+    public  void getDatos(){
+        System.out.println(this.getId());
+        System.out.println(this.getDescription());
+        System.out.println(this.getAmount());
+        System.out.println(this.getBalance());
+        System.out.println(this.getTimeStamp());
+    }
 }
